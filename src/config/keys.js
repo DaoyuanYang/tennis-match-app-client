@@ -1,3 +1,3 @@
 module.exports = {
-    serverUrl : 'https://dominicy-tennis-match-app.herokuapp.com/'
+    serverUrl : 'https://dominicy-tennis-match-app.herokuapp.com'
 }
