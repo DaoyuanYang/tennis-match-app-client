@@ -36,7 +36,7 @@ class SignUpContainer extends React.Component {
         })
     }
     
-    handleSubmit(event){
+    async handleSubmit(event){
         event.preventDefault()
         const stateUser = this.state.user 
         const user = {
@@ -46,6 +46,9 @@ class SignUpContainer extends React.Component {
         }
         console.log('submit!')
         axios.post(apiUrl.concat('/users'), user)
+            .then(function (res) {
+                console.log(res.data)
+            })
     }
     
     isValidInfo(){

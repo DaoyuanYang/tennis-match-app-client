@@ -1,3 +1,4 @@
 module.exports = {
-    serverUrl : 'https://dominicy-tennis-match-app.herokuapp.com'
+    serverUrl : 'http://localhost:3000',
+    devserverUrl : 'https://dominicy-tennis-match-app.herokuapp.com'
 }
