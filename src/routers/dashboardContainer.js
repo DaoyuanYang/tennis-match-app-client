@@ -36,7 +36,7 @@ class DashboardContainer extends React.Component {
         })
         .then((res) => {
             console.log(res.data)
-            this.setState({ user : res.data })
+            this.setState({ user : JSON.stringify(res.data) })
         })
         .catch((e) => {
             console.log(e)
@@ -47,24 +47,10 @@ class DashboardContainer extends React.Component {
     render() {
         console.log(this.state)
         return (
-            <DashboardForm />
+            <DashboardForm 
+            userProfile = { this.state.user }
+            />
         )
-
-
-        // if (this.state.authorized) {
-        //     return (
-        //         <div>
-        //             <DashboardForm 
-        //             />
-        //         </div>
-        //     )
-        // }
-        // else {
-        //     return (
-        //         <div></div>
-        //         // <Redirect to='/login'/>
-        //     )
-        // }
     }    
 }
 
