@@ -6,18 +6,37 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './routers/home'
 import SignUpContainer from './routers/SignUpContainer'
-import Login from './routers/login'
+import LoginContainer from './routers/loginContainer'
+import dashboardContainer from './routers/dashboardContainer'
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path='/' exact component={Home} />
-        <Route path='/signup' component={SignUpContainer} />
-        <Route path='/login' component={Login} />
-      </Switch>
-    </Router>
-  )
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.setAuthToken = this.setAuthToken.bind(this)
+    this.state = {
+      token : null
+    }
+  }
+
+
+  setAuthToken(authToken){
+    const bearer = 'Bearer '
+    const token = bearer.concat(authToken)
+    this.state.token = token
+  }
+
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path='/' exact component={Home} />
+          <Route path='/signup' component={SignUpContainer} />
+          <Route path='/login' component={LoginContainer} />
+          <Route path='/dashboard' component={dashboardContainer} />
+        </Switch>
+      </Router>
+    )
+  }
 }
 
 export default App;

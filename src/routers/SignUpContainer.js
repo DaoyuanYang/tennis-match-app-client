@@ -27,7 +27,6 @@ class SignUpContainer extends React.Component {
     
     handleChange(event){
         const field = event.target.name
-        console.log(field)
         const user = this.state.user
         user[field] = event.target.value
         
