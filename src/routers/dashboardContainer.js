@@ -47,9 +47,12 @@ class DashboardContainer extends React.Component {
     render() {
         console.log(this.state)
         return (
-            <DashboardForm 
-            userProfile = { this.state.user }
-            />
+            <div>
+                {/* <MyHeader></MyHeader> */}
+                <DashboardForm 
+                userProfile = { this.state.user }
+                />
+            </div>
         )
     }    
 }

@@ -9,6 +9,8 @@ import SignUpContainer from './routers/SignUpContainer'
 import LoginContainer from './routers/loginContainer'
 import dashboardContainer from './routers/dashboardContainer'
 
+import MyHeader from './partials/header'
+
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -27,14 +29,17 @@ class App extends React.Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/signup' component={SignUpContainer} />
-          <Route path='/login' component={LoginContainer} />
-          <Route path='/dashboard' component={dashboardContainer} />
-        </Switch>
-      </Router>
+      <div>
+        <MyHeader />
+        <Router>
+          <Switch>
+            <Route path='/' exact component={Home} />
+            <Route path='/signup' component={SignUpContainer} />
+            <Route path='/login' component={LoginContainer} />
+            <Route path='/dashboard' component={dashboardContainer} />
+          </Switch>
+        </Router>
+      </div>
     )
   }
 }
