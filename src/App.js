@@ -2,29 +2,50 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react'
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 
 import Home from './routers/home'
-import SignUpContainer from './routers/SignUpContainer'
-import LoginContainer from './routers/loginContainer'
-import dashboardContainer from './routers/dashboardContainer'
+import Signup from './routers/SignUpContainer'
+import Login from './routers/loginContainer'
+import Dashboard from './routers/dashboardContainer'
 
 import MyHeader from './partials/header'
+
+
+const axios = require('axios')
+
+// config serverUrl
+const apiUrl = require('./config/keys').serverUrl
+
 
 class App extends React.Component {
   constructor(props){
     super(props)
-    this.setAuthToken = this.setAuthToken.bind(this)
     this.state = {
       token : null
     }
   }
 
+  async loggedIn(){
+    const token = localStorage['TennisMatchAuthToken']
+    var rtn = false
+    await axios({
+      method : 'get',
+      url : apiUrl + '/auth',
+      headers : {
+          Authorization : 'Bearer ' + token
+      }
+    })
+    .then((res) => {
+        console.log(res.data)
+        rtn = true
+    })
+    .catch((e) => {
+        console.log(e)
+    }) 
 
-  setAuthToken(authToken){
-    const bearer = 'Bearer '
-    const token = bearer.concat(authToken)
-    this.state.token = token
+    console.log(rtn)
+    return rtn
   }
 
   render() {
@@ -33,10 +54,23 @@ class App extends React.Component {
         <MyHeader />
         <Router>
           <Switch>
-            <Route path='/' exact component={Home} />
-            <Route path='/signup' component={SignUpContainer} />
-            <Route path='/login' component={LoginContainer} />
-            <Route path='/dashboard' component={dashboardContainer} />
+            {/* <Route path='/' exact >
+              {this.loggedIn()? <Redirect to='/dashboard'></Redirect> : <Home></Home> }
+            </Route> */}
+
+            <Route path='/' exact component={Home}></Route>
+
+            <Route path='/signup' component={Signup} />
+            
+            <Route path='/login' component={Login} />
+            
+            <Route path='/dashboard' >
+              {this.loggedIn()? <Dashboard></Dashboard> : <Redirect to='/'></Redirect> }
+            </Route>
+
+            <Route path='/player/:id' >
+              {this.loggedIn()? <Home></Home> : <Redirect to='/'></Redirect> }
+            </Route>
           </Switch>
         </Router>
       </div>

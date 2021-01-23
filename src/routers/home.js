@@ -1,17 +1,24 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
+import HomeForm from './homeForm'
 const axios = require('axios')
 
 // config serverUrl
 const apiUrl = require('../config/keys').serverUrl.concat('/users')
 
 
-class MyClass extends React.Component {  
+class Home extends React.Component {  
   constructor (props) {
     super(props)
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(){
+    console.log(this.props)
+    // this.getAllUsers()
+  }
+
+  getAllUsers(){
     console.log('handle click')
     axios.get(apiUrl)
       .then((res) => {
@@ -25,13 +32,12 @@ class MyClass extends React.Component {
   render() {
     return (
       <div>
-        <h1>Home</h1>
-        <button className='square' onClick={() => this.handleClick()}>
-          {this.props.value} Click me!
-        </button>
+        <HomeForm >
+
+        </HomeForm>
       </div>
     )
   }
 }
 
-export default MyClass;
+export default Home;
