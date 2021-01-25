@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { Redirect } from 'react-router-dom'
 import LoginForm from './loginForm'
 import './signup.css'
 
@@ -14,7 +15,8 @@ class Login extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this)
         this.state = {
             email : null,
-            password : null
+            password : null,
+            loggedIn : false
         }
     }
 
@@ -26,6 +28,7 @@ class Login extends React.Component {
     }
 
     handleSubmit(event){
+        const THIS = this
         event.preventDefault()
         console.log(this.state)
         axios({
@@ -39,6 +42,10 @@ class Login extends React.Component {
         .then(function (res) {
             console.log(res.data)
             localStorage['TennisMatchAuthToken'] = res.data.token
+            THIS.setState({ loggedIn : true })
+        })
+        .catch(e => {
+            console.log(e)
         })
     }
 
@@ -53,10 +60,15 @@ class Login extends React.Component {
         // console.log(users)
         // console.log(this.state)
 
-        console.log(localStorage['TennisMatchAuthToken'])
+        // console.log(localStorage['TennisMatchAuthToken'])
     }
 
     render() {
+        if (this.state.loggedIn){
+            return (
+                <Redirect to='/dashboard'></Redirect>
+            )
+        }
         return (
             <div>
                 <LoginForm 

@@ -10,7 +10,7 @@ const HomeForm = ({
             <h1>login</h1>
             <div class="container">
                     <div class="text-center ">
-                        <Link to='signup'>
+                        <Link to='/signup'>
 
                             <button type="signup" class=" btn btn-block send-button tx-tfm" >
                                 Don't have an account yet? Signup here
@@ -20,12 +20,10 @@ const HomeForm = ({
                     </div>
 
                     <div class="text-center ">
-                        <Link to='signup'>
+                        <Link to='/login'>
                             <button type="login" class=" btn btn-block send-button tx-tfm" >
                                 Already have an account? Login here
-                                <Link to='/login'></Link>
                             </button>
-
                         </Link>
                     </div>
 

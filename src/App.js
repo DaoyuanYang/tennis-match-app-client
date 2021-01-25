@@ -60,9 +60,9 @@ class App extends React.Component {
 
             <Route path='/' exact component={Home}></Route>
 
-            <Route path='/signup' component={Signup} />
-            
-            <Route path='/login' component={Login} />
+            <Route path='/signup' component={Signup}></Route>
+
+            <Route path='/login' component={Login}></Route>
             
             <Route path='/dashboard' >
               {this.loggedIn()? <Dashboard></Dashboard> : <Redirect to='/'></Redirect> }

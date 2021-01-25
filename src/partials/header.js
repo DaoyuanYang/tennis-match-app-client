@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import './header.css'
+import { Link } from 'react-router-dom'
 
 class MyHeader extends React.Component {
     constructor (props) {
@@ -19,14 +19,17 @@ class MyHeader extends React.Component {
                         <li class="nav-item active">
                             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
+                        {/* <li class="nav-item">
                             <a class="nav-link" href="/signup">Signup</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="/login">login</a>
-                        </li>
+                        </li> */}
                         <li class="nav-item">
                             <a class="nav-link" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/player">Player</a>
                         </li>
                     </ul>
                     <span class="navbar-text">

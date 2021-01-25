@@ -1,4 +1,5 @@
 import React from 'react'
+import { Redirect } from 'react-router-dom'
 import './signup.css'
 import SignUpForm from './SignUpForm'
 const axios = require('axios')
@@ -16,6 +17,7 @@ class SignUpContainer extends React.Component {
             password : 'password'
         }
         this.state = {
+            signupSuccess : false, 
             user : {
                 name : 'name',
                 email : 'email',
@@ -36,6 +38,7 @@ class SignUpContainer extends React.Component {
     }
     
     async handleSubmit(event){
+        const THIS = this
         event.preventDefault()
         const stateUser = this.state.user 
         const user = {
@@ -47,6 +50,8 @@ class SignUpContainer extends React.Component {
         axios.post(apiUrl.concat('/users'), user)
             .then(function (res) {
                 console.log(res.data)
+                localStorage['TennisMatchAuthToken'] = res.data.token      
+                THIS.setState({ signupSuccess : true })     
             })
     }
     
@@ -62,6 +67,11 @@ class SignUpContainer extends React.Component {
     }
 
     render(){
+        if (this.state.signupSuccess) {
+            return (
+                <Redirect to='/dashboard'></Redirect>
+            )
+        }
         return (
             <div>
                 <SignUpForm 

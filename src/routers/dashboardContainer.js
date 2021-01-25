@@ -12,7 +12,7 @@ class DashboardContainer extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            user : null
+            user : 'Not logged in! User profile should go here'
         }
     }
 
