@@ -5,11 +5,11 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect} from 'react-router-dom'
 
 import Home from './routers/home'
-import Signup from './routers/SignUpContainer'
-import Login from './routers/loginContainer'
-import Dashboard from './routers/dashboardContainer'
+import Signup from './routers/signup'
+import Login from './routers/login'
+import Dashboard from './routers/dashboard'
 
-import MyHeader from './partials/header'
+import MyHeader from './components/header'
 
 
 const axios = require('axios')

@@ -30,7 +30,6 @@ class Login extends React.Component {
     handleSubmit(event){
         const THIS = this
         event.preventDefault()
-        console.log(this.state)
         axios({
             method : 'post',
             url : apiUrl,

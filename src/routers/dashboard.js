@@ -17,12 +17,7 @@ class DashboardContainer extends React.Component {
     }
 
     componentDidMount(){
-        this.fun()
-    }
-
-    fun () {
         this.getUserProfile()
-        console.log(this.state)
     }
 
     getUserProfile(){
