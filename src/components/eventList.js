@@ -7,18 +7,21 @@ class EventList extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            allEvents : [{eventName : 'all buz should go here'}]
+            allEvents : [{eventName : 'event'}]
         }
     }
 
     render(){
         return (
-            <div>{this.state.allEvents.map(e => (
-                <div>
-                    <span> {e.eventName} </span>
-                    <Event eventInfo={e}></Event>
-                </div>
-            ))}</div>
+            <div>
+                <p>EventList : </p>
+                <div>{this.state.allEvents.map(e => (
+                    <div>
+                        <span> {e.eventName} </span>
+                        <Event eventInfo={e}></Event>
+                    </div>
+                ))}</div>
+            </div>
         )
     
     }

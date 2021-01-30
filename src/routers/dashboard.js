@@ -31,7 +31,6 @@ class Dashboard extends React.Component {
             }
         })
         .then((res) => {
-            console.log(res.data)
             this.setState({ user : JSON.stringify(res.data) })
         })
         .catch((e) => {
@@ -50,7 +49,7 @@ class Dashboard extends React.Component {
             <React.Fragment>
                 <div class='dashboard-container'>
                     <div class="userProfile-container">
-                        <p>{ this.state.user }</p>
+                        <span>{ this.state.user }</span>
                         {/* Render basic user info here. Just a name for simple */}
                     </div>
 

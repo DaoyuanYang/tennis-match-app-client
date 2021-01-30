@@ -17,9 +17,12 @@ class Buz extends React.Component{
 
     render(){
         return (
-            <EventList
-                buz_id = {this.state.buzInfo.buz_id}
-            ></EventList>
+            <div>
+                <p>Buz : </p>
+                <EventList
+                    buz_id = {this.state.buzInfo.buz_id}
+                ></EventList>
+            </div>
         )
     }
 }

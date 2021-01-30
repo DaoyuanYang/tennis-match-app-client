@@ -16,12 +16,12 @@ class BuzList extends Component{
         super(props)
         this.getAllBuz = this.getAllBuz.bind(this)
         this.state = {
-            allBuz : []
+            allBuz : [1,2]
         }
     }
 
-    componentDidMount(){
-        this.getAllBuz()
+    async componentDidMount(){
+        await this.getAllBuz()
     }
 
     async getAllBuz(){
@@ -34,8 +34,10 @@ class BuzList extends Component{
             }
         })
         .then((res) => {
-            console.log(res.data)
-            this.setState({ allBuz : JSON.stringify(res.data) })
+            if (res.data !== '' && res.data !== null && res.data.length !== 0) {
+                console.log(res.data)
+                this.setState({ allBuz : JSON.stringify(res.data) })
+            }
         })
         .catch((e) => {
             console.log(e)
@@ -43,11 +45,12 @@ class BuzList extends Component{
     }
 
     render(){
+        console.log(this.state.allBuz )
         return (
             <React.Fragment>
+                <p>BuzList : </p>
                 <div class='buz-container'>
-                    {
-                        this.state.allBuz.map(buz => (
+                    {this.state.allBuz.map(buz => (
                             <Buz buzInfo={buz}></Buz>
                         ))
                     }
