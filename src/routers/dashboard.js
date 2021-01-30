@@ -1,18 +1,19 @@
 import React, {useState} from 'react'
 import { Redirect } from 'react-router-dom'
-import DashboardForm from './dashboardForm'
 import './signup.css'
+
+import BuzList from '../components/buzList'
 
 const axios = require('axios')
 
 // config serverUrl
 const apiUrl = require('../config/keys').serverUrl
 
-class DashboardContainer extends React.Component {
+class Dashboard extends React.Component {
     constructor (props) {
         super(props)
         this.state = {
-            user : 'Not logged in! User profile should go here'
+            user : 'Not logged in! User profile should go here',
         }
     }
 
@@ -38,18 +39,26 @@ class DashboardContainer extends React.Component {
         }) 
     }
 
+    getAllBuzUnderUser(){
+
+    }
+
 
     render() {
-        console.log(this.state)
+        // console.log(this.state)
         return (
-            <div>
-                {/* <MyHeader></MyHeader> */}
-                <DashboardForm 
-                userProfile = { this.state.user }
-                />
-            </div>
+            <React.Fragment>
+                <div class='dashboard-container'>
+                    <div class="userProfile-container">
+                        <p>{ this.state.user }</p>
+                        {/* Render basic user info here. Just a name for simple */}
+                    </div>
+
+                </div>
+                <BuzList></BuzList>
+            </React.Fragment>
         )
     }    
 }
 
-export default DashboardContainer
+export default Dashboard
