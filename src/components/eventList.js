@@ -7,7 +7,11 @@ class EventList extends React.Component{
     constructor(props){
         super(props)
         this.state = {
-            allEvents : [{eventName : 'event'}]
+            allEvents : [
+                {eventName : 'my first event'},
+                {eventName : 'my second event'}
+            ]
+
         }
     }
 
@@ -15,8 +19,8 @@ class EventList extends React.Component{
         return (
             <div>
                 <p>EventList : </p>
-                <div>{this.state.allEvents.map(e => (
-                    <div>
+                <div>{this.state.allEvents.length === 0? <div>No event found for this buz</div> : this.state.allEvents.map(e => (
+                    <div key={e.eventName}>
                         <span> {e.eventName} </span>
                         <Event eventInfo={e}></Event>
                     </div>

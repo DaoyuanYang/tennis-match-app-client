@@ -50,10 +50,12 @@ class BuzList extends Component{
             <React.Fragment>
                 <p>BuzList : </p>
                 <div class='buz-container'>
-                    {this.state.allBuz.map(buz => (
-                            <Buz buzInfo={buz}></Buz>
-                        ))
-                    }
+                    <ul>
+                        {(this.state.allBuz.length === 0)? <span>No buz found for the current user</span> : this.state.allBuz.map(buz => (
+                                <Buz buzInfo={buz} key={buz}></Buz>
+                            ))  
+                        }
+                    </ul>
                 </div>
             </React.Fragment>
         )
