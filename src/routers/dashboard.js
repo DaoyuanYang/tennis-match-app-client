@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom'
 import './signup.css'
 
 import BuzList from '../components/buzList'
+import EventList from '../components/eventList'
+import Event from '../components/event'
 
 const axios = require('axios')
 
@@ -14,6 +16,9 @@ class Dashboard extends React.Component {
         super(props)
         this.state = {
             user : 'Not logged in! User profile should go here',
+            // load all buz and with specified buz load all events 
+            buzes : [],
+            events : []
         }
     }
 
@@ -42,7 +47,11 @@ class Dashboard extends React.Component {
 
     }
 
-
+    /*
+        BuzList -> getBasicProfile()
+        EventList -> getDetailedProfileAllEvents() -> store as state
+        Event -> read state
+    */ 
     render() {
         // console.log(this.state)
         return (
@@ -55,6 +64,8 @@ class Dashboard extends React.Component {
 
                 </div>
                 <BuzList></BuzList>
+                <EventList buz={this.state.events}></EventList>
+                <Event event={this.state.events}></Event>
             </React.Fragment>
         )
     }    
