@@ -8,6 +8,7 @@ import Home from './routers/home'
 import Signup from './routers/signup'
 import Login from './routers/login'
 import Dashboard from './routers/dashboard'
+import Marketday from './routers/marketday'
 
 import MyHeader from './components/header'
 
@@ -51,8 +52,8 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <MyHeader />
         <Router>
+          <MyHeader />
           <Switch>
             {/* <Route path='/' exact >
               {this.loggedIn()? <Redirect to='/dashboard'></Redirect> : <Home></Home> }
@@ -60,7 +61,7 @@ class App extends React.Component {
 
             <Route path='/' exact component={Home}></Route>
 
-            <Route path='/signup' component={Signup}></Route>
+            <Route exact path='/signup' component={Signup}></Route>
 
             <Route path='/login' component={Login}></Route>
             
@@ -71,35 +72,16 @@ class App extends React.Component {
             <Route path='/player/:id' >
               {this.loggedIn()? <Home></Home> : <Redirect to='/'></Redirect> }
             </Route>
+            
+            <Route path='/signup/marketday2021' component={Marketday}></Route>
+
           </Switch>
         </Router>
+        
+       
       </div>
     )
   }
 }
 
 export default App;
-
-
-
-
-
-
-  // return (
-  //   <div className="App">
-  //     <header className="App-header">
-  //       <img src={logo} className="App-logo" alt="logo" />
-  //       <p>
-  //         Edit <code>src/App.js</code> and save to reload.
-  //       </p>
-  //       <a
-  //         className="App-link"
-  //         href="https://reactjs.org"
-  //         target="_blank"
-  //         rel="noopener noreferrer"
-  //       >
-  //         Learn React
-  //       </a>
-  //     </header>
-  //   </div>
-  // );
