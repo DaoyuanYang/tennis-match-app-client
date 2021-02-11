@@ -17,7 +17,8 @@ class Marketday extends React.Component {
             user : {
                 FirstName : 'firstName',
                 LastName : 'lastName',
-                Email : 'email'
+                Email : 'email',
+                uid : 'uid'
             },
             email : {
                 email1 : 'email1',

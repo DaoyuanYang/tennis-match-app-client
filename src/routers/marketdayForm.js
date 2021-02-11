@@ -18,6 +18,10 @@ const MarketdayForm = ({
                     </div>
 
                     <div class="form-group">
+                        <input type="text" name="uid"  class="form-control my-input" id="uid" placeholder="Uni ID" onChange={handleChange}/>
+                    </div>
+
+                    <div class="form-group">
                         <input type="email" name="email1"  class="form-control my-input" id="email1" placeholder="Email" onChange={handleChange}/>
                     </div>
                     
