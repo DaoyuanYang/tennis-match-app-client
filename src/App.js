@@ -53,7 +53,7 @@ class App extends React.Component {
     return (
       <div>
         <Router>
-          <MyHeader />
+          {/* <MyHeader /> */}
           <Switch>
             {/* <Route path='/' exact >
               {this.loggedIn()? <Redirect to='/dashboard'></Redirect> : <Home></Home> }
