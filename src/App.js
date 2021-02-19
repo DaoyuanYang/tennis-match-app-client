@@ -9,6 +9,7 @@ import Signup from './routers/signup'
 import Login from './routers/login'
 import Dashboard from './routers/dashboard'
 import Marketday from './routers/marketday'
+import GetAllMembers from './routers/getAllMembers'
 
 import MyHeader from './components/header'
 
@@ -74,6 +75,8 @@ class App extends React.Component {
             </Route>
             
             <Route path='/signup/marketday2021' component={Marketday}></Route>
+
+            <Route path='/anutc/2021/allmembers' component={GetAllMembers}></Route>            
 
           </Switch>
         </Router>
