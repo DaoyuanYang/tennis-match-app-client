@@ -1,3 +1,14 @@
+# tennis-match-app-client
+This app contains a collection of apps that are under the same domain and users need to browse through the front main page to get to a specific app unless through an url.\
+Diffrent apps are managed by React.Router and every app has it's description on the prefix of the url.\
+
+## What's in here
+- ANU Tennis Club ladder
+- Tennis match app
+
+## User guide
+The user guide will be completed shortly after completion of specific apps.\
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
